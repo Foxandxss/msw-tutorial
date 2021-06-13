@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@msw-tutorial/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@msw-tutorial/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@msw-tutorial/mock-api": ["libs/mock-api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -52,7 +52,10 @@
             "assets": [
               "apps/spa/src/favicon.ico",
               "apps/spa/src/assets",
-              "apps/api/src/mockServiceWorker.js"
+              "apps/spa/src/mockServiceWorker.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "debug"
             ],
             "styles": [
               "apps/spa/src/styles.css"
@@ -114,6 +117,9 @@
             },
             "development": {
               "browserTarget": "spa:build:development"
+            },
+            "mock": {
+              "browserTarget": "spa:build:mock"
             }
           },
           "defaultConfiguration": "development",
@@ -244,6 +250,21 @@
           "options": {
             "lintFilePatterns": [
               "libs/api-interfaces/**/*.ts"
+            ]
+          }
+        }
+      }
+    },
+    "mock-api": {
+      "root": "libs/mock-api",
+      "sourceRoot": "libs/mock-api/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mock-api/**/*.ts"
             ]
           }
         }
