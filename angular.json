@@ -40,15 +40,23 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/spa",
             "index": "apps/spa/src/index.html",
             "main": "apps/spa/src/main.ts",
             "polyfills": "apps/spa/src/polyfills.ts",
             "tsConfig": "apps/spa/tsconfig.app.json",
-            "assets": ["apps/spa/src/favicon.ico", "apps/spa/src/assets"],
-            "styles": ["apps/spa/src/styles.css"],
+            "assets": [
+              "apps/spa/src/favicon.ico",
+              "apps/spa/src/assets",
+              "apps/api/src/mockServiceWorker.js"
+            ],
+            "styles": [
+              "apps/spa/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,6 +88,20 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "mock": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/spa/src/environments/environment.ts",
+                  "with": "apps/spa/src/environments/environment.mock.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -116,7 +138,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/spa"],
+          "outputs": [
+            "coverage/apps/spa"
+          ],
           "options": {
             "jestConfig": "apps/spa/jest.config.js",
             "passWithNoTests": true
@@ -145,7 +169,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/spa-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/spa-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -157,12 +183,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -187,12 +217,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -208,7 +242,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/api-interfaces/**/*.ts"
+            ]
           }
         }
       }
